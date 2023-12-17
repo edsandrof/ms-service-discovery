@@ -1,0 +1,26 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-server
+
+config:
+  import: 'optional:configserver:http://localhost:8888/'
+
+eureka:
+  client:
+    fetch-registry: true
+
+    # will not register itself. useful when you have several Eureka servers.
+    register-with-eureka: false
+  server:
+    # will not automatically delete itself if it does not receive traffic for a while.
+    enable-self-preservation: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
